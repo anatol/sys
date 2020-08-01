@@ -140,6 +140,25 @@ type FscryptGetKeyStatusArg struct {
 	_            [13]uint32
 }
 
+type DmTargetDeps struct {
+	Count uint32
+	_     uint32
+}
+
+type DmTargetVersions struct {
+	Next    uint32
+	Version [3]uint32
+}
+
+type DmTargetMsg struct {
+	Sector uint64
+}
+
+const (
+	SizeofDmIoctl      = 0x138
+	SizeofDmTargetSpec = 0x28
+)
+
 type KeyctlDHParams struct {
 	Private int32
 	Prime   int32

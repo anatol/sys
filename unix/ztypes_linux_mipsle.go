@@ -120,6 +120,36 @@ type Flock_t struct {
 	_      [4]byte
 }
 
+type DmIoctl struct {
+	Version      [3]uint32
+	Data_size    uint32
+	Data_start   uint32
+	Target_count uint32
+	Open_count   int32
+	Flags        uint32
+	Event_nr     uint32
+	_            uint32
+	Dev          uint64
+	Name         [128]int8
+	Uuid         [129]int8
+	Data         [7]int8
+}
+
+type DmTargetSpec struct {
+	Sector_start uint64
+	Length       uint64
+	Status       int32
+	Next         uint32
+	Target_type  [16]int8
+}
+
+type DmNameList struct {
+	Dev  uint64
+	Next uint32
+	Name [0]int8
+	_    [4]byte
+}
+
 const (
 	FADV_DONTNEED = 0x4
 	FADV_NOREUSE  = 0x5
